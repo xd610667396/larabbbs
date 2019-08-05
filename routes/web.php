@@ -26,3 +26,9 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
+//只能 show  update  edit这几种方式请求
+//Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
+
+
+Route::get('/users/{user}', 'UsersController@show')->name('users.show');
